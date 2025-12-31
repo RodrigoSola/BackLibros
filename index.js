@@ -1,6 +1,6 @@
 import bodyParser from "body-parser"
 import express from "express"
-import { PORT } from "../backend/config.js"
+import { PORT } from "./config.js"
 import cors from "cors"
 import { connectDB } from "../backend/db/db.js"
 import cookieParser from "cookie-parser"
