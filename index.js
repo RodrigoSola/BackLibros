@@ -11,7 +11,7 @@ import bookRouter from "./routes/bookRoutes.js"
 const app = express()
 
 app.use(cors({
-    origin: "*",
+     origin: ["https://front-libros.vercel.app", "http://localhost:3000"],
     methods: [ "GET", "PUT", "POST", "DELETE", "OPTIONS"],
     credentials: true,
     optionsSuccessStatus: 200
