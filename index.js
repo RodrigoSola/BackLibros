@@ -1,8 +1,8 @@
 import bodyParser from "body-parser"
 import express from "express"
-import { PORT } from "./config.js"
+import { PORT } from "../backend/config.js"
 import cors from "cors"
-import { connectDB } from "./db/db.js"
+import { connectDB } from "../backend/db/db.js"
 import cookieParser from "cookie-parser"
 import session from "express-session"
 import bookRouter from "./routes/bookRoutes.js"
@@ -11,7 +11,7 @@ import bookRouter from "./routes/bookRoutes.js"
 const app = express()
 
 app.use(cors({
-     origin: ["https://front-libros.vercel.app", "http://localhost:3000"],
+    origin: "*",
     methods: [ "GET", "PUT", "POST", "DELETE", "OPTIONS"],
     credentials: true,
     optionsSuccessStatus: 200
@@ -36,6 +36,7 @@ app.use(session({
 console.log("Conectando a MongoDB...");
 connectDB()
 
+app.options('*', cors())
 app.use("/api/books", bookRouter)
 console.log("Exportando rutas desde bookRouter");
 console.log(bookRouter);
