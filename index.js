@@ -36,7 +36,7 @@ app.use(session({
 console.log("Conectando a MongoDB...");
 connectDB()
 
-app.options('*', cors())
+
 app.use("/api/books", bookRouter)
 console.log("Exportando rutas desde bookRouter");
 console.log(bookRouter);
